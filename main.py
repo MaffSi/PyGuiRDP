@@ -53,7 +53,7 @@ class RDPLoginWindow(QMainWindow):
 def main():
     app = QApplication(sys.argv)
     window = RDPLoginWindow()
-#    window.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+    window.setWindowFlags(QtCore.Qt.FramelessWindowHint)
     window.show()
     sys.exit(app.exec())
 
