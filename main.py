@@ -45,6 +45,8 @@ class RDPLoginWindow(QMainWindow):
 
         if username and password:
             self.connect_to_rdp(username, password)
+            self.User.clear()
+            self.Password.clear()
         else:
             QMessageBox.warning(None, "Warning", "Please enter both username and password.")
 
