@@ -4,6 +4,15 @@ Este é um projeto de interface gráfica em Python e QT para o programa de linha
 
 ![Captura de Tela do Programa no Windows 11](https://github.com/MaffSi/PyGuiRDP/assets/80588387/23e9e613-b526-43c8-a352-df2b0e837d56)
 
+## Requisitos do Sistema
+
+Este programa requer os seguintes componentes instalados no sistema operacional:
+
+- xfreerdp
+- PyQt5
+
+Certifique-se de que todos os requisitos estão instalados antes de utilizar o programa.
+
 ## Funcionalidades
 
 - Inserção fácil de usuário e senha, com armazenamento do servidor em um arquivo .ini.
