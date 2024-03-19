@@ -79,7 +79,9 @@ class RDPLoginWindow(QMainWindow):
 
         # Inicia o processo xfreerdp
         try:
-            subprocess.run(command, check=True)
+            result = subprocess.run(command, capture_output=True, text=True, check=True)
+            if "STATUS_LOGON_FAILURE" in result.stdout:
+                QMessageBox.critical(None, "Error", "Credenciais inválidas!")
         except subprocess.CalledProcessError as e:
             # Exibe uma mensagem de erro em caso de falha na conexão
             QMessageBox.critical(None, "Error", f"Failed to connect: {e}")
@@ -108,7 +110,7 @@ def main():
     # Cria uma instância da janela de login RDP
     window = RDPLoginWindow()
     # Oculta a barra de título da janela
-    window.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+#    window.setWindowFlags(QtCore.Qt.FramelessWindowHint)
     # Exibe a janela de login
     window.show()
     # Executa o loop de eventos da aplicação
