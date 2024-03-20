@@ -73,9 +73,9 @@
    <widget class="QPushButton" name="Config">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>200</x>
       <y>230</y>
-      <width>91</width>
+      <width>111</width>
       <height>23</height>
      </rect>
     </property>
@@ -149,9 +149,9 @@
    <widget class="QPushButton" name="Entrar">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>260</x>
       <y>200</y>
-      <width>41</width>
+      <width>51</width>
       <height>21</height>
      </rect>
     </property>
@@ -167,7 +167,7 @@
      <rect>
       <x>20</x>
       <y>200</y>
-      <width>241</width>
+      <width>231</width>
       <height>20</height>
      </rect>
     </property>
@@ -200,6 +200,12 @@
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>User</tabstop>
+  <tabstop>Password</tabstop>
+  <tabstop>Entrar</tabstop>
+  <tabstop>Config</tabstop>
+ </tabstops>
  <resources>
   <include location="Images.qrc"/>
  </resources>
