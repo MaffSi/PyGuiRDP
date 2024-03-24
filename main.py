@@ -76,6 +76,7 @@ class RDPLoginWindow(QMainWindow):
             "/cert-ignore",  # Ignorar erros de certificado (opcional)
             "+gfx-thin-client"
 	        "+aero",
+            "+auto-reconnect"
             "+clipboard"
         ]
 
