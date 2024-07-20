@@ -5,6 +5,7 @@ import subprocess
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QInputDialog
 from PyQt5 import uic, QtCore
 import configparser
+from PyQt5.QtWidgets import QDesktopWidget
 
 # Função para criar um arquivo de configuração com o endereço do servidor RDP
 def createConf(rdp_server):
@@ -30,9 +31,13 @@ def readConf(config_file):
 class RDPLoginWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.load_ui()
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        self.setStyleSheet("background:transparent;")
+        self.load_ui()
+
+
+
         self.setStyleSheet("""
             QLineEdit, QPushButton { /* Seleciona filhos diretos da QMainWindow */
                 background-color: white;
@@ -40,7 +45,7 @@ class RDPLoginWindow(QMainWindow):
                 border-width: 2px;
                 border-color: darkgray;
             }
-            
+
         """)
 
     # Carregar a interface do usuário
@@ -55,6 +60,7 @@ class RDPLoginWindow(QMainWindow):
         self.Entrar.clicked.connect(self.on_login_button_clicked)
         # Conecta o sinal de clique no botão 'Config' ao método correspondente
         self.Config.clicked.connect(self.config_ui)
+
 
     # Configurar a interface do usuário para inserir o endereço do servidor
     def config_ui(self):
@@ -118,12 +124,18 @@ class RDPLoginWindow(QMainWindow):
             # Se um ou ambos os campos estiverem vazios, exibe uma mensagem de aviso
             QMessageBox.warning(None, "Warning", "Insira seu nome de usuário e senha!")
 
+    def center(self):
+        qr = self.frameGeometry()
+        cp = QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.move(qr.topLeft())
 # Função principal
 def main():
     # Inicia a aplicação PyQt5
     app = QApplication(sys.argv)
     # Cria uma instância da janela de login RDP
     window = RDPLoginWindow()
+    window.center()
     # Oculta a barra de título da janela
 #    window.setWindowFlags(QtCore.Qt.FramelessWindowHint)
     # Exibe a janela de login
