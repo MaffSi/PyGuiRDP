@@ -31,6 +31,17 @@ class RDPLoginWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.load_ui()
+        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        self.setStyleSheet("""
+            QLineEdit, QPushButton { /* Seleciona filhos diretos da QMainWindow */
+                background-color: white;
+                border-style: outset;
+                border-width: 2px;
+                border-color: darkgray;
+            }
+            
+        """)
 
     # Carregar a interface do usuário
     def load_ui(self):
@@ -83,6 +94,7 @@ class RDPLoginWindow(QMainWindow):
         # Inicia o processo xfreerdp
         try:
             result = subprocess.run(command, capture_output=True, text=True, check=True)
+            self.close()
             if "STATUS_LOGON_FAILURE" in result.stdout:
                 QMessageBox.critical(None, "Error", "Credenciais inválidas!")
         except subprocess.CalledProcessError as e:
