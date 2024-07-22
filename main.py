@@ -31,22 +31,14 @@ def readConf(config_file):
 class RDPLoginWindow(QMainWindow):
     def __init__(self):
         super().__init__()
+
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground, True)
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
-        self.setStyleSheet("background:transparent;")
+
         self.load_ui()
-
-
-
-        self.setStyleSheet("""
-            QLineEdit, QPushButton { /* Seleciona filhos diretos da QMainWindow */
-                background-color: white;
-                border-style: outset;
-                border-width: 2px;
-                border-color: darkgray;
-            }
-
-        """)
+        self.setStyleSheet("* {background-color: rgba(0, 0, 0, 1);}"
+                           "QLineEdit, QPushButton, QLabel {color: white; padding: 2px}"
+                           "QPushButton {border :0.5px solid gray; padding: 2px;}")
 
     # Carregar a interface do usuário
     def load_ui(self):
