@@ -36,9 +36,21 @@ class RDPLoginWindow(QMainWindow):
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
 
         self.load_ui()
-        self.setStyleSheet("* {background-color: rgba(0, 0, 0, 1);}"
-                           "QLineEdit, QPushButton, QLabel {color: white; padding: 2px}"
-                           "QPushButton {border :0.5px solid gray; padding: 2px;}")
+        self.setStyleSheet("""
+                    QWidget {
+                        background-color: #1e1e1e; /* Dark background color */
+                        color: white; /* Text color */
+                    }
+                    QLineEdit, QPushButton {
+                        background-color: #2e2e2e; /* Darker background for inputs and buttons */
+                        border: 1px solid #3a3a3a; /* Darker border */
+                        padding: 3.5px;
+                        color: white; /* Text color */
+                    }
+                    QPushButton:hover {
+                        background-color: #3e3e3e; /* Dark background color on hover */
+                    }
+                """)
 
     # Carregar a interface do usuário
     def load_ui(self):
@@ -52,6 +64,7 @@ class RDPLoginWindow(QMainWindow):
         self.Entrar.clicked.connect(self.on_login_button_clicked)
         # Conecta o sinal de clique no botão 'Config' ao método correspondente
         self.Config.clicked.connect(self.config_ui)
+        self.Desligar.clicked.connect(lambda _: subprocess.run("systemctl poweroff"))
 
 
     # Configurar a interface do usuário para inserir o endereço do servidor
