@@ -64,7 +64,7 @@ class RDPLoginWindow(QMainWindow):
         self.Entrar.clicked.connect(self.on_login_button_clicked)
         # Conecta o sinal de clique no botão 'Config' ao método correspondente
         self.Config.clicked.connect(self.config_ui)
-        self.Desligar.clicked.connect(lambda _: subprocess.run("systemctl poweroff"))
+        self.Desligar.clicked.connect(lambda _: os.system("shutdown -h"))
 
 
     # Configurar a interface do usuário para inserir o endereço do servidor
