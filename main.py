@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QInputDialog
 from PyQt5 import uic, QtCore
 import configparser
 from PyQt5.QtWidgets import QDesktopWidget
-
+os.chdir(sys.path[0])
 # Função para criar um arquivo de configuração com o endereço do servidor RDP
 def createConf(rdp_server):
     # Cria um objeto ConfigParser
