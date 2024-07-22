@@ -87,13 +87,14 @@ class RDPLoginWindow(QMainWindow):
             "/v:" + rdp_server,
             "/u:" + rdp_username,
             "/p:" + password,
-            "/floatbar:sticky:on,default:visible,show:fullscreen"
+            "/floatbar:sticky:on,default:visible,show:fullscreen",
+            "/f",
 	        "/dynamic-resolution",
             "/printer",
             "/cert-ignore",  # Ignorar erros de certificado (opcional)
-            "+gfx-thin-client"
+            "+gfx-thin-client",
 	        "+aero",
-            "+auto-reconnect"
+            "+auto-reconnect",
             "+clipboard"
         ]
 
